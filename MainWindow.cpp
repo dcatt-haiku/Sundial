@@ -7,7 +7,9 @@
 #include <TabView.h>
 
 MainWindow::MainWindow(void)
-	:	BWindow(BRect(100,100,500,400), "Sundial", B_TITLED_WINDOW, B_ASYNCHRONOUS_CONTROLS)
+	:	BWindow(BRect(100,100,500,400), "Sundial", B_TITLED_WINDOW,
+				B_NOT_ZOOMABLE | B_NOT_RESIZABLE |
+				B_ASYNCHRONOUS_CONTROLS | B_QUIT_ON_WINDOW_CLOSE)
 {
 	BView *mainView = new BView(Bounds(), "mainView", B_FOLLOW_ALL, B_WILL_DRAW);
 	BTabView *tabView = new BTabView(Bounds(), "tabView", B_WIDTH_AS_USUAL, B_FOLLOW_ALL);
@@ -27,7 +29,7 @@ MainWindow::MainWindow(void)
 	alarmView->alarmStringView->SetViewColor(ui_color(B_PANEL_BACKGROUND_COLOR));
 	
 	stopwatchView->SetViewColor(ui_color(B_PANEL_BACKGROUND_COLOR));
-	stopwatchView->stopwatchStringView->SetViewColor(ui_color(B_PANEL_BACKGROUND_COLOR));
+	// stopwatchView->stopwatchStringView->SetViewColor(ui_color(B_PANEL_BACKGROUND_COLOR));
 	
 	timerView->SetViewColor(ui_color(B_PANEL_BACKGROUND_COLOR));
 	timerView->timerStringView->SetViewColor(ui_color(B_PANEL_BACKGROUND_COLOR));
